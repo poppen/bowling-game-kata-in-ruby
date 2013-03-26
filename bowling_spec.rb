@@ -23,5 +23,13 @@ describe Bowling do
       17.times { @game.hit(0) }
       @game.score.should eq(16)
     end
+
+    it 'retunrs 24 for one strike, and 3 pins and 4 ping at next frame' do
+      @game.hit(10)
+      @game.hit(3)
+      @game.hit(4)
+      16.times { @game.hit(0) }
+      @game.score.should eq(24)
+    end
   end
 end
