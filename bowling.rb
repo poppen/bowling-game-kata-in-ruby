@@ -11,11 +11,11 @@ class Bowling
   def score
     index = 0
     while index < @throws.size
-      if @throws[index] == 10
-        @score += (@throws[index] + @throws[index+1] + @throws[index+2])
+      if strike?(index)
+        @score += strike_score(index)
         index += 1
-      elsif @throws[index] + @throws[index+1] == 10
-        @score += (10 + @throws[index+2])
+      elsif spare?(index)
+        @score += spare_score(index)
         index += 2
       else
         @score += (@throws[index] + @throws[index+1])
@@ -23,5 +23,22 @@ class Bowling
       end
     end
     @score
+  end
+
+  private
+  def strike?(index)
+    @throws[index] == 10
+  end
+
+  def spare?(index)
+    @throws[index] + @throws[index+1] == 10
+  end
+
+  def strike_score(index)
+    @throws[index] + @throws[index+1] + @throws[index+2]
+  end
+
+  def spare_score(index)
+    10 + @throws[index+2]
   end
 end
