@@ -15,5 +15,13 @@ describe Bowling do
       20.times { @game.hit(1) }
       @game.score.should eq(20)
     end
+
+    it 'returns 16 for one spare and next 3 pins' do
+      @game.hit(5)
+      @game.hit(5)
+      @game.hit(4)
+      17.times { @game.hit(0) }
+      @game.score.should eq(16)
+    end
   end
 end
