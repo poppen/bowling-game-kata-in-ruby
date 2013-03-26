@@ -19,7 +19,7 @@ describe Bowling do
     it 'returns 16 for one spare and next 3 pins' do
       @game.hit(5)
       @game.hit(5)
-      @game.hit(4)
+      @game.hit(3)
       17.times { @game.hit(0) }
       @game.score.should eq(16)
     end
