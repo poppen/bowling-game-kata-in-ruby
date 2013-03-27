@@ -1,4 +1,6 @@
 class Bowling
+  FRAME_NUM = 10
+
   def initialize
     @throws = []
   end
@@ -10,7 +12,8 @@ class Bowling
   def score
     score = 0
     index = 0
-    while index < @throws.size
+
+    FRAME_NUM.times do
       if strike?(index)
         score += strike_score(index)
         index += 1
@@ -35,7 +38,7 @@ class Bowling
   end
 
   def strike_score(index)
-    @throws[index] + @throws[index+1] + @throws[index+2]
+    10 + @throws[index+1] + @throws[index+2]
   end
 
   def spare_score(index)
