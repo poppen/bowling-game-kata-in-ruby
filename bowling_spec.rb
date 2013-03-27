@@ -33,7 +33,8 @@ describe Bowling do
     end
 
     it 'returns 300 for all strike' do
-      10.times { @game.hit(10) }
+      12.times { @game.hit(10) }
+      @game.score.should eq(300)
     end
   end
 end
