@@ -1,6 +1,5 @@
 class Bowling
   def initialize
-    @score = 0
     @throws = []
   end
 
@@ -9,20 +8,21 @@ class Bowling
   end
 
   def score
+    score = 0
     index = 0
     while index < @throws.size
       if strike?(index)
-        @score += strike_score(index)
+        score += strike_score(index)
         index += 1
       elsif spare?(index)
-        @score += spare_score(index)
+        score += spare_score(index)
         index += 2
       else
-        @score += (@throws[index] + @throws[index+1])
+        score += (@throws[index] + @throws[index+1])
         index += 2
       end
     end
-    @score
+    score
   end
 
   private
